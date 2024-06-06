@@ -9,12 +9,25 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 */
 
+
+.wipborder {
+    /* for marking work-in-progress */
+    border: 15px yellow dotted;
+}
+
+
+:root {
+    --card-width: 20rem;
+    --card-big-width: 30rem;
+    --gallery-width: 68rem;
+    --basket-width: 64rem;
+    --button-color: rgba(232, 63, 87, 1);
+}
+
 body {
     margin: 0;
     background-color: black;
-
     font-family: "Fira Sans", sans-serif;
-
 }
 
 header {
@@ -57,16 +70,6 @@ h1 {
     height: 100%;
 }
 
-.product-card a {
-    background-color: rgb(232, 63, 87);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    width: fit-content;
-    color: white;
-    font-style: normal;
-    text-decoration: none;
-}
-
 header img.ninja-head {
     width: 16rem;
     align-self: center;
@@ -74,93 +77,258 @@ header img.ninja-head {
 
 main {
     color: white;
-    padding: 2rem 2rem 0;
+    padding: 5rem 2rem 10rem;
 }
 
-main section.gallery,
-main section.gallery2 {
+section.gallery,
+section.gallery2,
+section.gallery-checkout {
     margin: 0 auto;
 
-    max-width: 66.5rem;
+    max-width: var(--gallery-width);
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
+    /*     justify-content: space-between;
+ */
 }
+
+/* TODO 240606 testing... */
+/* section.gallery2,
+section.gallery-checkout {
+    justify-content: space-between;
+    align-content: center;
+}
+ */
 
 /* card : */
 
-main article.product-card {
+article.product-card {
     /*
-    border-style: solid;
-    border-width: 1px;
-    border-color: hotpink;
-*/
-
-    width: 20rem;
+    border-style: solid; border-width: 1px; border-color: hotpink;
+    */
+    width: var(--card-width);
     height: 35rem;
-    padding: 1rem;
-    margin: 0rem 0rem 5rem 0rem;
+    padding: 0rem;
+    margin: 0rem 1rem 5rem 1rem;
 
     display: flex;
     flex-direction: column;
     justify-content: start;
 }
 
-main article.product-card img {
+article.product-card img {
     /*
-    border-style: solid;
-    border-width: 1px;
-    border-color: hotpink;
-*/
-    width: 20rem;
+    border-style: solid; border-width: 1px; border-color: hotpink;
+    */
+    width: var(--card-width);
     align-self: center;
 }
 
-main section.gallery2 article.product-card2 {
-/*
-    border-style: solid;
-    border-width: 1px;
-    border-color: hotpink;
-*/
+section.gallery2 article.product-card2,
+section.gallery-checkout article.product-card-checkout {
+    /*
+    border-style: solid; border-width: 1px; border-color: hotpink;
+    */
     background-color: white;
     color: black;
 
 
-    width: 31rem;
+    width: var(--card-big-width);
     height: 49rem;
     padding: 0;
-    margin: 0rem 0.5rem 5rem 0.5rem;
+    margin: 0rem 2rem 5rem 2rem;
 
     display: flex;
     flex-direction: column;
     justify-content: start;
+/*     justify-content: end; */ /* TODO: testa justify-self:end på child */
 }
 
 
 
-.product-card2 h3 {
+.product-card2 h3,
+.product-card-checkout h3 {
     font-size: 2.5rem;
     margin: 1rem 1rem;
     font-weight: 700;
 }
 
-.product-card2 p {
+.product-card2 p,
+.product-card-checkout p {
     margin: 0 1rem;
     font-weight: 400;
     font-size: larger;
-    /*takeup any leftover space. pushes <a> button down*/
-    height: 100%;
+    /* take up any leftover space. pushes <a> button down*/
+    height: 50%;
 }
 
-.product-card2 a {
-    background-color: rgb(232, 63, 87);
+a.but {
+    background-color: var(--button-color);
     border-radius: 8px;
-    padding: 1rem 1rem;
-    margin: 0 1rem 1rem 1rem;
+    padding: 0.5rem 1rem;
 
     width: fit-content;
     color: white;
     font-style: normal;
     text-decoration: none;
+}
+
+
+section.gallery2 a.but,
+section.gallery-checkout a.but,
+section.finalize a.but {
+    /*
+currently: margin on buttons
+todo: replace button margin with section padding.
+in product-card: put everything except the image inside of another container.
+put padding on that^
+needs another container in product-card (1, 2 and 3)
+*/
+    margin: 0 0rem 1rem 1rem;
+    padding: 1rem 1rem;
+}
+
+/* Footer */
+
+body footer {
+    background-color: rgb(51, 51, 51);
+
+    color: white;
+    text-decoration: none;
+    font-style: normal;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 3rem 0 5rem;
+}
+
+body footer div#grid {
+
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 2fr 1px 2fr 1px 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 90%;
+    max-width: 80rem;
+}
+
+footer section.navlist {
+
+    margin: 0 auto;
+    min-width: 4rem;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    justify-self: left;
+}
+
+footer section.address {
+    margin: 0 auto;
+    min-width: 9.5rem;
+}
+
+footer section.links {
+    margin: 0 auto;
+    min-width: 11rem;
+}
+
+
+
+footer h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.75rem;
+}
+
+footer p {
+    margin: 0 0 0.25rem 0;
+    opacity: 75%;
+    font-weight: 300;
+}
+
+footer nav a {
+    color: inherit;
+    text-decoration: inherit;
+    font-style: inherit;
+}
+
+
+/*
+Extras for Checkout (gallery-checkout, .product-card-checkout)
+*/
+
+main section.gallery-checkout.heading {
+    justify-content: start;
+}
+
+main section.gallery-checkout.heading h2 {
+    margin-left: 1.5rem;
+    font-size: 3rem;
+    font-weight: 500;
+}
+
+
+main section.gallery-checkout article.product-card-checkout {
+    height: 40rem;
+}
+
+.product-card-checkout p {
+    /* (hide) */
+    transform: scale(0);
+    height: 0%;
+}
+
+.product-card-checkout a.but {
+    justify-self: end;
+}
+
+section.basket {
+    display: grid;
+    grid-template-columns: 6fr 4fr 1.4fr;
+    max-width: 63rem;
+    max-width: var(--basket-width);
+
+    margin: 0 auto;
+}
+
+section.basket h3 {
+    background-color: rgba(139, 0, 0, 0.5);
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0;
+    padding: 0.25rem 0;
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+section.basket h2 {
+    font-size: 2rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+
+    padding-top: 2rem;
+    /* line on top*/
+    border-top: 4px;
+    border-bottom: 0;
+    border-right: 0;
+    border-left: 0;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+section.basket p {
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0.5rem 0 1rem;
+    font-size: 2rem;
+    font-weight: 300;
+}
+
+section.finalize {
+    max-width: var(--basket-width);
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 7.5rem auto 0;
+
 }
