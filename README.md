@@ -1,8 +1,8 @@
 # Poster Shop exercise
 
-## TODO:
+## TODO
 
-### Restructure product-card:
+### Restructure product-card
 product-card and variants use individual margins on buttons, paragraphs, etc.  
 Do: Separate cards into section1 and section2. Section1 contains the image, section2 contains the rest. Replace current margins on text with padding on section2.
 
