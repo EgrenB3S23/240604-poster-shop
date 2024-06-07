@@ -1,3 +1,19 @@
+# Poster Shop exercise
+
+## TODO
+
+### Restructure product-card
+product-card and variants use individual margins on buttons, paragraphs, etc.  
+Do: Separate cards into section1 and section2. Section1 contains the image, section2 contains the rest. Replace current margins on text with padding on section2.
+
+### Clean up classes
+Separate the class "product-card-checkout" into two classes: "product-card" and "checkout". Do the same for "gallery" and "gallery2".  
+Then clean up CSS.
+
+
+
+
+# From task:
 ![poster](./poster.png)
 
 # Figma - Poster shop
