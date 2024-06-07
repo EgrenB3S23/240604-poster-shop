@@ -9,8 +9,6 @@
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 */
 
-html {}
-
 :root {
     --card-width: 20rem;
     --card-big-width: 31rem;
